@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TrainingKotlin</string>
+    <string name="buttonProcess">Execute</string>
+    <string name="executableString">executable commands</string>
+    <string name="todo">TODO</string>
+
+
+    <string-array name="WaterMarks">
+        <item>Test Image</item>
+        <item>Apple</item>
+        <item>Insta</item>
+        <item>Netflix</item>
+    </string-array>
+
+</resources>
