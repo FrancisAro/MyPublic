@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     var selectedWaterMark = "";
     var inputImage = "";
     val pathInputImg="file:///storage/emulated/0/Download/";
+    val pathInputText="file:///storage/emulated/0/Download/";
     val pathInputImg2="/storage/emulated/0/Download/";
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         val Vformat=".mp4"
         outputVideoPath="${pathOut}${randomInts}${Vformat}"
 
-        val session = FFmpegKit.execute("-i ${pathInVdo} -i ${pathInputImg}${inputImg} -filter_complex [1:v]scale=70:50,format=rgba,colorchannelmixer=aa=0.5[ovr1];[0:v][ovr1]overlay=(main_w-overlay_w):(main_h-overlay_h) -c:a copy ${pathOut}${randomInts}${Vformat}")
+        val session = FFmpegKit.execute("-i ${pathInVdo} -i ${pathInputImg}${inputImg} -filter_complex [1:v]scale=50:30,format=rgba,colorchannelmixer=aa=0.8[ovr1];[0:v][ovr1]overlay=(main_w-overlay_w):(main_h-overlay_h),drawtext=text='Hello World':fontcolor=white@1.0:fontsize=10:y=h/2:x=0:fontfile=${pathInputText}openSansItalic.ttf -c:a copy -movflags +faststart ${pathOut}${randomInts}${Vformat}")
         if (ReturnCode.isSuccess(session.returnCode)) {
 
             // SUCCESS
